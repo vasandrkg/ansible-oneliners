@@ -8,7 +8,7 @@ ansible --inventory inventories/some_env/hosts some_group_from_hosts_file \
 ```
 
 # run some shell command
-```console
+```bash
 ansible --inventory inventories/some_env/hosts some_group_from_hosts_file \
         --become \
         --module-name shell \
