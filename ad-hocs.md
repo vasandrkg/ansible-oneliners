@@ -1,5 +1,5 @@
 # check that hosts are available
-```shell
+```bash
 ansible --inventory inventories/some_env/hosts some_group_from_hosts_file \
         --become \
         --module-name ping \
