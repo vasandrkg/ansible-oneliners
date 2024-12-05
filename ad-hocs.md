@@ -1,4 +1,4 @@
-# check that hosts are available
+# Сheck that hosts are available
 ```bash
 ansible --inventory inventories/some_env/hosts some_group_from_hosts_file \
         --become \
@@ -7,7 +7,7 @@ ansible --inventory inventories/some_env/hosts some_group_from_hosts_file \
         --extra-vars 'ansible_password=some_pass';
 ```
 
-# run some shell command
+# Run some shell command
 ```sh
 ansible --inventory inventories/some_env/hosts some_group_from_hosts_file \
         --become \
