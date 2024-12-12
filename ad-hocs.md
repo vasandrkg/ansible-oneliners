@@ -1,6 +1,6 @@
 ### Print the inventory file in json format
 ```bash
-ansible-inventory -i inventories/some_env/hosts --list
+ansible-inventory -i inventories/some_env/hosts --list;
 ```
 
 ### Сheck that hosts are available
