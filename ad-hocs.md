@@ -1,3 +1,8 @@
+### Print the inventory file in json format
+```bash
+ansible-inventory -i inventories/some_env/hosts --list
+```
+
 ### Сheck that hosts are available
 ```bash
 ansible --inventory inventories/some_env/hosts some_group_from_hosts_file \
@@ -23,6 +28,6 @@ ansible --inventory inventories/some_env/hosts some_group_from_hosts_file \
         --become \
         --module-name docker_container \
         --args "name=some_container_name state=started" \
-        --extra-vars 'ansible_user=some_user'
+        --extra-vars 'ansible_user=some_user' \
         --extra-vars 'ansible_password=some_pass';
 ```
