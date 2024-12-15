@@ -41,3 +41,11 @@ ansible --inventory inventories/some_env/hosts some_group_from_hosts_file \
         --extra-vars 'ansible_user=some_user' \
         --extra-vars 'ansible_password=some_pass';
 ```
+
+### Run particular ansible ad-hoc command host by host  
+```sh
+for host in $(ansible-inventory --inventory inventories/all/hosts --list | grep "some_host_pattern_goes_here" | awk '{print $1}' | tr -d '"|,|:' | sort | uniq); 
+        do
+                ansible $host --inventory inventories/all/hosts --module-name command --args "your_command_here";
+        done
+```
