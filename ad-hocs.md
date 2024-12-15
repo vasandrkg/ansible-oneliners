@@ -68,3 +68,17 @@ for host in $(ansible-inventory --inventory inventories/all/hosts --list | grep 
                 ansible $host --inventory inventories/all/hosts --module-name command --args "your_command_here";
         done
 ```
+
+### Run single ansible ad-hoc command in order host by host
+```sh
+for host in $(ansible-inventory --inventory inventories/all/hosts --list | grep "some_host_pattern" | awk '{print $1}' | tr -d '"|,|:' | sort | uniq); 
+        do
+                ansible --inventory "$host," all \
+                        --become \
+                        --module-name ping \
+                        --extra-vars 'ansible_user=some_user' \
+                        --extra-vars 'ansible_password=some_path';                    
+        done
+```
+
+
