@@ -12,9 +12,8 @@ ansible --inventory inventories/some_env/hosts some_group_from_hosts_file \
         --extra-vars 'ansible_password=some_pass';
 ```
 
-# Сheck that particular hosts are available
-#### we are using inline inventory and not inventory file 
-#### pay attention to trailing comma for the list of hosts, it's important
+### Сheck that particular hosts are available
+##### we are using inline inventory and not inventory file ##### pay attention to trailing comma for the list of hosts, it's important
 ```bash
 ansible --inventory "host1.example.com,host2.example.com,host3.example.com," all \
         --become \
