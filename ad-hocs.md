@@ -70,7 +70,7 @@ for host in $(ansible-inventory --inventory inventories/all/hosts --list | grep 
 ```
 
 ### Run single ansible ad-hoc command in order host by host
-#### pay attention to trailing comma after $host, in that way ansible knows it's an inventory file        
+#### Please pay attention to trailing comma after $host, in that way ansible knows it's an inventory file!     
 ```sh
 for host in $(ansible-inventory --inventory inventories/all/hosts --list | grep "some_host_pattern" | awk '{print $1}' | tr -d '"|,|:' | sort | uniq); 
         do
