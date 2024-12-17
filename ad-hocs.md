@@ -51,6 +51,16 @@ ansible --inventory inventories/some_env/hosts some_group_from_hosts_file \
         --extra-vars 'ansible_password=some_pass';
 ```
 
+### List containers with particular name (consul-client) and another name (elastic) using multiple filters
+```sh
+ansible --inventory inventories/some_env/hosts some_group_from_hosts_file \
+        --become \
+        --module-name shell \
+        --args "docker container list --all --filter name='consul-client' --filter name='elastic'" \
+        --extra-vars 'ansible_user=some_user' \
+        --extra-vars 'ansible_password=some_pass';
+```
+
 ### Start docker containers using docker_container module
 ```sh
 ansible --inventory inventories/some_env/hosts some_group_from_hosts_file \
