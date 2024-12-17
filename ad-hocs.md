@@ -1,7 +1,14 @@
 ### Print the inventory file in json format
 ```bash
-ansible-inventory -i inventories/some_env/hosts --list;
+ansible-inventory --inventory inventories/some_env/hosts --list;
 ```
+
+### List hosts from the particular group from the inventory file
+```bash
+ansible SOME_GROUP --inventory inventories/some_env/hosts --list-hosts;
+```
+
+
 
 ### Сheck that hosts are available
 ```bash
