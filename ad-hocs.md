@@ -8,7 +8,7 @@ ansible-inventory --inventory inventories/some_env/hosts --list;
 ansible SOME_GROUP --inventory inventories/some_env/hosts --list-hosts;
 ```
 
-### Сheck that hosts are available using plain text .ini inventory file
+### Сheck that hosts are available using plain text .ini inventory file and ansible.cfg config file
 ```bash
 ansible --inventory inventory.ini all \
         --become \
