@@ -8,6 +8,16 @@ ansible-inventory --inventory inventories/some_env/hosts --list;
 ansible SOME_GROUP --inventory inventories/some_env/hosts --list-hosts;
 ```
 
+### Сheck that hosts are available using plain text .ini inventory file
+```bash
+ansible --inventory inventory.ini all \
+        --become \
+        --module-name ping;
+
+ansible --inventory inventory.ini some_group_from_inventory_ini_file \
+        --become \
+        --module-name ping;
+```
 
 
 ### Сheck that hosts are available
