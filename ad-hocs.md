@@ -16,6 +16,7 @@ docker run -it --rm \
            --module-name shell \
            --args \"uptime\" \
            --extra-vars 'ansible_user=some_user' \
+           --extra-vars 'ansible_password=some_pass' \
            --extra-vars ansible_python_interpreter='/usr/bin/python3'";
 ```
 
