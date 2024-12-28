@@ -1,3 +1,21 @@
+# The most complicated and beautiful Ansible ad-hoc command I've been using on my Mac so far.
+```bash
+docker run -it --rm \
+           --name ansible-ad-hoc \
+           --volume /Users/some_user/go/src/some_dir_with_ansible_stuff:/ansible \
+           --volume /Users/some_user/.ssh/some_dir_with_private_ssh_keys:/ansible/.ssh \
+           alpine/ansible:latest \
+           /bin/bash -c "export ANSIBLE_HOST_KEY_CHECKING=False && \
+           ansible --inventory ansible/inventories/all/hosts all \
+           --become \
+           --private-key=/ansible/.ssh/some_private_ssh_key \
+           --module-name shell \
+           --args \"uptime\" \
+           --extra-vars 'ansible_user=some_user' \
+           --extra-vars ansible_python_interpreter='/usr/bin/python3'";
+```
+
+
 ### Print the inventory file in json format
 ```bash
 ansible-inventory --inventory inventories/some_env/hosts --list;
