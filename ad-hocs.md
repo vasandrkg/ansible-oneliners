@@ -2,7 +2,7 @@
 ```bash
 sudo docker pull alpine/ansible:latest;
 
-cd /Users/some_user/go/src/some_ansible_dir;
+cd /Users/some_user/go/src/some_dir_with_ansible_stuff;
 
 docker run -it --rm \
            --name ansible-ad-hoc \
