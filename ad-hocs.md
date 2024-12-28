@@ -112,3 +112,12 @@ for host in $(ansible-inventory --inventory inventories/all/hosts --list | grep 
 ```
 
 
+### Run some Ansible ad-hoc commands in Docker container
+```sh
+sudo docker run -it --rm --name ansible-ad-hoc --volume /home/some_user/go/src/some_ansible_dir:/ansible --volume /home/some_user/.ssh/some_ssh_dir:/ansible/.ssh alpine/ansible:latest /bin/bash -c "export ANSIBLE_HOST_KEY_CHECKING=False && ansible --inventory ansible/inventories/all/hosts all --become --private-key=/ansible/.ssh/some_private_ssh_key --module-name shell --args \"uptime\"";
+
+```
+
+
+
+
