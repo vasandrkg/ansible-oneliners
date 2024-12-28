@@ -1,4 +1,4 @@
-# The most complicated and beautiful Ansible ad-hoc command I've been using on my Mac so far.
+#### The most complicated and beautiful Ansible ad-hoc command I've been using on my Mac so far.
 ```bash
 docker run -it --rm \
            --name ansible-ad-hoc \
