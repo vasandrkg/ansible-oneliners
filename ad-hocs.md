@@ -8,6 +8,10 @@ docker run -it --rm \
            --name ansible-ad-hoc \
            --volume /Users/some_user/go/src/some_dir_with_ansible_stuff:/ansible \
            --volume /Users/some_user/.ssh/some_dir_with_private_ssh_keys:/ansible/.ssh \
+           --env ENV_POSTGRES_DB_NAME='some_postgres_db_name' \
+           --env ENV_POSTGRES_PORT='5432' \
+           --env-file /Users/some_user/go/src/some_dir_with_ansible_stuff/env.list.file \
+           --workdir / \
            alpine/ansible:latest \
            /bin/bash -c "export ANSIBLE_HOST_KEY_CHECKING=False && \
            ansible --inventory ansible/inventories/all/hosts all \
