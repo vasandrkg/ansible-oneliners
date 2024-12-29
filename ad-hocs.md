@@ -4,7 +4,7 @@ sudo docker pull alpine/ansible:latest;
 
 cd /Users/some_user/go/src/some_dir_with_ansible_stuff;
 
-docker run -it --rm \
+sudo docker run -it --rm \
            --name ansible-ad-hoc \
            --volume /Users/some_user/go/src/some_dir_with_ansible_stuff:/ansible \
            --volume /Users/some_user/.ssh/some_dir_with_private_ssh_keys:/ansible/.ssh \
