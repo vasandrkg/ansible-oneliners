@@ -14,7 +14,7 @@ docker run -it --rm \
            --workdir / \
            alpine/ansible:latest \
            /bin/bash -c "export ANSIBLE_HOST_KEY_CHECKING=False && \
-           ansible --inventory ansible/inventories/all/hosts all \
+           ansible --inventory /ansible/inventories/all/hosts all \
            --become \
            --private-key=/ansible/.ssh/some_private_ssh_key \
            --module-name shell \
