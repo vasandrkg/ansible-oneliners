@@ -11,17 +11,18 @@ sudo docker run -it --rm \
            --env ENV_POSTGRES_DB_NAME='some_postgres_db_name' \
            --env ENV_POSTGRES_PORT='5432' \
            --env-file /Users/some_user/go/src/some_dir_with_ansible_stuff/env.list.file \
-           --workdir / \
+           --workdir /ansible \
            alpine/ansible:latest \
            /bin/bash -c "export ANSIBLE_HOST_KEY_CHECKING=False && \
-           ansible --inventory /ansible/inventories/all/hosts all \
+           ansible --inventory ./inventories/all/hosts all \
            --become \
-           --private-key=/ansible/.ssh/some_private_ssh_key \
+           --private-key=./.ssh/some_private_ssh_key \
            --module-name shell \
            --args \"uptime\" \
+           --extra-vars 'ansible_python_interpreter=/usr/bin/python3' \
            --extra-vars 'ansible_user=some_user' \
-           --extra-vars 'ansible_password=some_pass' \
-           --extra-vars 'ansible_python_interpreter=/usr/bin/python3'";
+           --extra-vars 'ansible_password=some_pass'"
+
 ```
 
 
