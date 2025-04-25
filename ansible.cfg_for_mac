@@ -1,0 +1,22 @@
+# Ansible Configuration File
+# This file location for MacBook is: /Users/aavasilev/ansible/ansible.cfg
+# cat ~/ansible/ansible.cfg
+
+[defaults]
+private_key_file = /Users/vasandrkg/.ssh/vasandrkg_ssh_key
+inventory = /Users/vasandrkg/ansible/inventory.ini
+log_path = /Users/vasandrkg/ansible/ansible.log
+roles_path = /Users/vasandrkg/ansible/roles
+remote_user = root
+host_key_checking = False
+force_color = True
+nocows = True
+ansible_python_interpreter = /usr/bin/python3
+deprecation_warnings=False
+interpreter_python=auto_silent
+
+[privilege_escalation]
+become = True
+
+[inventory]
+enable_plugins = host_list, script, auto, yaml, ini, toml
