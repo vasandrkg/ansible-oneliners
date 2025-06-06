@@ -1,0 +1,11 @@
+---
+
+# Playbook to debug (just prints out to console) all the variables
+
+- hosts: all
+  gather_facts: yes
+  pre_tasks:
+    - name: Show Variable Values
+      debug:
+        msg: |
+          some_var1 = {{ some_var1 | default('UNDEFINED') }}
