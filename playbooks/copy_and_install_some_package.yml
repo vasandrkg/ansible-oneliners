@@ -1,0 +1,15 @@
+---
+
+- name: Upload and install DEB package
+  hosts: all
+  become: yes
+  tasks:
+    - name: Upload DEB package to target host
+      ansible.builtin.copy:
+        src: ./package/mngt-front-service-${MNGT_FRONT_SERVICE_VERSION}.deb
+        dest: ${TARGET_COPY_PACKAGE_DIR}/
+
+    - name: Install DEB package
+      ansible.builtin.apt:
+       deb: ${TARGET_COPY_PACKAGE_DIR}/mngt-front-service-${MNGT_FRONT_SERVICE_VERSION}.deb
+       state: present
